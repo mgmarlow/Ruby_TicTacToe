@@ -1,5 +1,3 @@
-require_relative 'GameBoard'
-
 class Game
   # Create an instance of our gameboard, and do logic for some gameboard 
   # within a game loop.
@@ -24,7 +22,7 @@ class Game
     puts 'Please enter the coordinates (row col) into the prompt, or "exit" to quit'
     puts 'Example input:  1 3'
     print '> '
-    @coords = gets.chomp
+    @coords = gets.chomp.strip
 
     exit if @coords.downcase == 'exit'
     add_piece = draw
@@ -34,7 +32,11 @@ class Game
   def draw
     @row = @coords[0].to_i - 1
     @col = @coords[-1].to_i - 1
-    @board.add_move(@row, @col, @player)
+    if @row <= 2 and @row >= 0 and @col <= 2 and @col >= 0
+      @board.add_move(@row, @col, @player)
+    else
+      return :invalid_input
+    end
   end
 
   def toggle_player
