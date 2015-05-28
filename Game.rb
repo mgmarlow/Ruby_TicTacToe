@@ -45,6 +45,3 @@ class Game
     game_loop
   end
 end
-
-game = Game.new
-game.start
