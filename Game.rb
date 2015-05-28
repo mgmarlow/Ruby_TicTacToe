@@ -27,8 +27,8 @@ class Game
     @coords = gets.chomp
 
     exit if @coords.downcase == 'exit'
-    draw
-    toggle_player
+    add_piece = draw
+    toggle_player unless add_piece == :invalid_input
   end
 
   def draw

@@ -32,8 +32,10 @@ class GameBoard
       @board[row][col] = ' X '
     elsif player == 2 && current_pos == ' _ '
       @board[row][col] = ' O '
+    else
+      return :invalid_input
     end
 
-    #@board
+    @board
   end
 end
