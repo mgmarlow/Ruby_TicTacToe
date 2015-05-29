@@ -26,7 +26,15 @@ class Game
 
     exit if @coords.downcase == 'exit'
     add_piece = draw
+
+    if @board.game_win(' X ') or @board.game_win(' O ')
+      puts "Player #{@player} wins!"
+      @board.print_board
+      exit
+    end
+
     toggle_player unless add_piece == :invalid_input
+
   end
 
   def draw
@@ -41,6 +49,18 @@ class Game
 
   def toggle_player
     @player == 1 ? @player = 2 : @player = 1
+  end
+
+  def game_win
+    # Column
+    @board.each do |row|
+      return true if row[0] == row[1] and row[0] == row[2]
+    end
+    # Row
+    3.times do |col|
+      return true if @board[0][i] == @board[1][i] and @board[0][i] == @board[2][i]
+    end
+    # Diagonal
   end
 
   def start

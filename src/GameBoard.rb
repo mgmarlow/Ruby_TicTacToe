@@ -38,4 +38,27 @@ class GameBoard
 
     @board
   end
+
+  def game_win char
+    # Column
+    @board.each do |row|
+      if row[0] == char and row[1] == char and row[2] == char
+        return true
+      end
+    end
+
+    # Row
+    3.times do |col|
+      if @board[0][col] == char and @board[1][col] == char and @board[2][col] == char
+        return true
+      end
+    end
+
+    # Diagonal
+    return true if @board[0][0] == char and @board[1][1] == char and @board[2][2] == char
+    return true if @board[0][2] == char and @board[1][1] == char and @board[2][0] == char
+
+    # Default
+    false
+  end
 end
