@@ -1,5 +1,5 @@
 ## Tic Tac Toe
-A Tic Tac Toe implementation with the Ruby programming language.
+A Tic Tac Toe implementation created with Ruby.
 
 ## To play:
 
